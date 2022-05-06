@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <ul>
+        {% for estacionamento in estacionamentos %}
+            <a href="{% url 'update_locacao' estacionamento.id %}">
+                <li> {{ estacionamento.carro }} - {{ estacionamento.cliente }} - {{ estacionamento.vendedor }} - {{ estacionamento.dataLocacao }}
+                - {{ estacionamento.valor }} - {{ estacionamento.dataDevolucao }}</li>
+            </a>
+        {% endfor %}
+    </ul>
+
+    <a class="btn btn-primary" href="{% url 'create_locacao' %}">Novo</a>
+    <a class="btn btn-primary" href="{% url 'list_locacao' %}">Listar</a>
+
+{% endblock %}
